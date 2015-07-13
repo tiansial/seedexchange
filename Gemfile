@@ -15,6 +15,10 @@ gem 'haml', '~> 4.0.6'
 gem 'bourbon', '~> 4.2.3'
 gem 'neat', '~> 1.7.2'
 gem 'simple_form', '~> 3.1.0'
+gem 'therubyracer'
+gem 'devise', '~> 3.5.1'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'byebug'
