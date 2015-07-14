@@ -1,0 +1,9 @@
+<h1>
+  <%= @seed.title %>
+</h1>
+<p>
+  <%= @seed.description %>
+</p>
+<%= link_to "Voltar", root_path %>
+<%= link_to "Editar", edit_seed_path %>
+<%= link_to "Apagar", seed_path, method: :delete, data: { confirm: "De certeza que quer apagar a semente?"} %>
