@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html></html>
+<html>
 <head>
   <title>Troca de Sementes</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="//use.typekit.net/zgd8tfc.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
+	<%= render 'partials/navbar' %>
+
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: "alert alert-green" %>
   <% end %>

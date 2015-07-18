@@ -19,6 +19,7 @@ gem 'therubyracer'
 gem 'devise', '~> 3.5.1'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'paperclip', '~> 4.3.0'
 
 group :development, :test do
   gem 'byebug'

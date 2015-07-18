@@ -1,5 +1,7 @@
 class SeedsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_seed, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @seeds = Seed.all.order("created_at DESC")
@@ -10,11 +12,11 @@ class SeedsController < ApplicationController
   end
 
   def new
-    @seed = Seed.new
+    @seed = current_user.seeds.build
   end
 
   def create
-    @seed = Seed.new(seed_params)
+    @seed = current_user.seeds.build(seed_params)
 
     if @seed.save
       redirect_to @seed, notice: "Semente criada com sucesso."
@@ -42,7 +44,7 @@ class SeedsController < ApplicationController
   private
 
   def seed_params
-    params.require(:seed).permit(:title, :description)
+    params.require(:seed).permit(:title, :description, :image)
   end
 
   def find_seed

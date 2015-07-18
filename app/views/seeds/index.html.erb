@@ -1,5 +1,74 @@
-<% @seeds.each do |seed| %>
-  <h2>
-    <%= link_to seed.title, seed %>
-  </h2>
-<% end %>
+<div class="seeds--wrapper">
+  <div class="seeds--feed">
+    <% @seeds.each do |seed| %>
+      <div class="seeds--card">
+
+        
+        <%= link_to seed do %>
+          <figure>
+            <%= image_tag seed.image.url(:medium) %>
+          </figure>
+        <% end %>
+
+        <div class="seeds--card__content">
+          <%= link_to (seed), :class => "seeds--card__type" do %>
+            <div>
+              <h1><%= seed.title %></h1>
+              <p><%= seed.description %></p>
+            </div>
+          <% end %>
+
+          <div class="seeds--card__user">
+
+            <a href="#">
+
+              <div class="seeds--card__userimg">
+                  <div class="heightContainer">
+                    <%= image_tag("johndoe") %>
+                  </div>
+              </div>
+
+              <div class="seeds--card__username">
+                <%= seed.user.name  %>
+              </div>
+
+              <div class="seeds--card__userlocation">
+                Viseu
+              </div>
+
+              <span class="seeds--card__userstatus" style="background-color:#2CC36B;"></span>
+            </a>
+          </div>
+
+          <div class="seeds--card__popularity">
+            <ul>
+              <li>
+                <%= image_tag("heart.svg") %>
+                <span>23</span>
+              </li>
+              <li>
+                <a href="#">
+                  <%= image_tag("comments.svg") %>
+                  <span>13</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="seeds--card__wantbutton">
+            <a href="#">quero!</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="seeds--stats">
+    <div class="community">
+      <h1>Comunidade</h1>
+      <p><i class="fa fa-users"></i> Membros registados: <%= User.count %></p>
+      <p class="facebook"><i class="fa fa-thumbs-up"></i> Grupo Facebook: </p>
+      <p class="online"><i class="fa fa-circle"></i> Membros online: </p>
+    </div>
+  </div>
+</div>

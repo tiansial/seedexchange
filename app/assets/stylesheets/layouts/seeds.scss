@@ -1,0 +1,214 @@
+.seeds--wrapper {
+  @include outer-container();
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  .seeds--feed {
+    @include span-columns(8);
+  }
+
+  .seeds--stats {
+    @include span-columns(4);
+    background-color: #FFFFFF;
+    padding: 35px;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.25);
+    border-radius: 5px;
+
+    .community {
+      h1 {
+        color: $black;
+        font-size: 19px;
+        font-weight: 700;
+        margin-bottom: 35px;
+      }
+
+      p {
+        font-weight: 500;
+        color: $grey;
+        margin-bottom: 20px;
+      }
+
+      .facebook i{
+        color: $facebook;
+      }
+
+      .online {
+        margin-top: 40px;
+
+        i {
+          color: $online-green;
+        }
+      }
+    }
+
+  }
+
+  .seeds--card {
+    @include span-columns(4);
+    background: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.25);
+
+    figure {
+
+      img {
+        display: block;
+        width: 100%;
+        height: 250px;
+        -o-object-fit: cover;
+        object-fit: cover;
+        border-radius: 5px 5px 0 0;
+      }
+    }
+
+    .seeds--card__content {
+
+      .seeds--card__type {
+        text-decoration: none;
+        display: block;
+        @include transition(all 0.2s ease-in-out);
+
+        &:hover {
+          background-color: $hover-grey;
+          @include transition(all 0.2s ease-in-out);
+        }
+
+        div {
+          padding: 1em;
+          border-bottom: 1px solid $border-grey;
+        }
+        h1 {
+          color: $green;
+          font-weight: 500;
+          font-size: 19px;
+        }
+
+        p {
+          color: $light-grey;
+        }
+
+
+      }
+
+      .seeds--card__user {
+        position: relative;
+        padding: 1em;
+        overflow: hidden;
+        display: block;
+        line-height: 15px;
+
+        a {
+          text-decoration: none;
+        }
+
+        .seeds--card__userimg {
+          position: relative;
+          border-radius: 50%;
+          float: left;
+          height: 30px;
+          margin-right: 5px;
+          width: 30px;
+
+          &::after {
+              border-radius: 50%;
+              box-shadow: 0 0 2px rgba(0,0,0,0.33) inset;
+              content: " ";
+              height: 30px;
+              left: 0;
+              position: absolute;
+              top: 0;
+              width: 30px;
+          }
+
+          img {
+            position: absolute;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+          }
+        }
+
+        .seeds--card__username  {
+          white-space: nowrap;
+          overflow: hidden;
+          -ms-text-overflow: ellipsis;
+          text-overflow: ellipsis;
+          display: block;
+          color: $black;
+          font-weight: 500;
+          font-size: 14px
+        }
+
+        .seeds--card__userlocation {
+          white-space: nowrap;
+          overflow: hidden;
+          -ms-text-overflow: ellipsis;
+          text-overflow: ellipsis;
+          display: block;
+          color: $light-grey;
+          font-size: 13px;
+        }
+
+        .seeds--card__userstatus {
+          position: absolute;
+          right: 1em;
+          height: 10px;
+          width: 10px;
+          border-radius: 50%;
+          float: right;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+
+      .seeds--card__popularity {
+          padding: 1em;
+
+          ul {
+            text-align: center;
+
+            li {
+              display: inline;
+              color: $light-grey;
+              padding: 0 15px;
+
+              img {
+                width: 24px;
+                height: 21px;
+                vertical-align: middle;
+                margin-right: 5px;
+              }
+
+              a {
+                text-decoration: none;
+                color: $light-grey;
+              }
+            }
+          }
+      }
+
+      .seeds--card__wantbutton {
+        padding: 1em;
+        text-align: center;
+
+        a {
+          background-color: $green;
+          border-radius: 3px;
+          padding: 10px 50px;
+          text-decoration: none;
+          color: #FFFFFF;
+          text-transform: uppercase;
+          font-weight: 500;
+          font-size: 16px;
+          display: inline-block;
+          @include transition(all 0.2s ease-in-out);
+
+          &:hover {
+            background-color: darken($green, 10%);
+            @include transition(all 0.2s ease-in-out);
+          }
+        }
+      }
+    }
+  }
+}

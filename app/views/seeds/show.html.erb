@@ -4,6 +4,7 @@
 <p>
   <%= @seed.description %>
 </p>
+<p><%= @seed.user.email  %></p>
 <%= link_to "Voltar", root_path %>
 <%= link_to "Editar", edit_seed_path %>
-<%= link_to "Apagar", seed_path, method: :delete, data: { confirm: "De certeza que quer apagar a semente?"} %>
+<%= link_to "Apagar", seed_path, method: :delete, data: { confirm: "De certeza que quer apagar a #{@seed.title}semente?"} %>

@@ -11,14 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712151800) do
+ActiveRecord::Schema.define(version: 20150718152112) do
 
   create_table "seeds", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
+
+  add_index "seeds", ["user_id"], name: "index_seeds_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: ""
@@ -36,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150712151800) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.string   "location"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

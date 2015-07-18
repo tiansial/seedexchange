@@ -13,7 +13,10 @@ class User < ActiveRecord::Base
        user.uid = auth.uid
        user.name = auth.info.name
        user.email = auth.info.email
+       user.location = auth.info.location
        user.password = Devise.friendly_token[0,20]
      end
   end
+
+  has_many :seeds
 end
