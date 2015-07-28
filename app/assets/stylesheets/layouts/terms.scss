@@ -1,0 +1,22 @@
+.terms--box {
+	@include outer-container();
+	@include white-box();
+
+	padding:2em;
+
+	h1 {
+		font-weight: 700;
+		font-size: 25px;
+		color: $green;
+		margin-bottom:30px;
+	}
+
+	p {
+		font-size: 18px;
+		line-height: 30px;
+		margin-bottom:20px;
+		color: $text-grey;
+		text-align: justify;
+	}
+
+}

@@ -1,0 +1,22 @@
+main {
+	min-height: 100%;
+	/* equal to footer height */
+	margin-bottom: -150px; 
+}
+
+main:after {
+  content: "";
+  display: block;
+}
+footer, main:after {
+  height: 150px; 
+}
+footer {
+  background: #FFFFFF;
+  border-top: 1px solid $border-grey;
+  margin-top: 30px;
+
+  .container {
+  	@include outer-container();
+  }
+}

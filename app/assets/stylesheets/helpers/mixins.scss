@@ -1,0 +1,34 @@
+@mixin round-image($px) {
+	position: relative;
+	border-radius: 50%;
+	vertical-align: middle;
+	display: inline-block;
+	height: $px;
+	width: $px;
+
+	&::after {
+	  border-radius: 50%;
+	  box-shadow: 0 0 2px rgba(0, 0, 0, 0.33) inset;
+	  content: " ";
+	  height: $px;
+	  left: 0;
+	  position: absolute;
+	  top: 0;
+	  width: $px;
+	}
+
+	img {
+	  position: absolute;
+	  border-radius: 50%;
+	  height: $px;
+	  width: $px;
+	  left:0;
+	  top:0;
+	}
+}
+
+@mixin white-box() {
+	background: #FFFFFF;
+	border-radius: 5px;
+	box-shadow: 0 2px 0 0 rgba(0,0,0,0.1);
+}
