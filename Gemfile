@@ -20,6 +20,10 @@ gem 'devise', '~> 3.5.1'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'paperclip', '~> 4.3.0'
+gem 'masonry-rails', '~> 0.2.4'
+gem 'acts_as_votable', '~> 0.10.0'
+gem 'jquery-turbolinks'
+gem 'redis'
 
 group :development, :test do
   gem 'byebug'

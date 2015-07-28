@@ -17,12 +17,17 @@ header.navigation {
   $navigation-submenu-padding: 1em;
   $navigation-submenu-width: 12em;
   $horizontal-bar-mode: $large-screen;
-
+  margin-bottom: 30px;
   background-color: $navigation-background;
   border-bottom: 1px solid darken($navigation-background, 10);
   min-height: $navigation-height;
   width: 100%;
   z-index: 999;
+
+  .user--nav_img {
+    @include round-image(40px);
+    margin-right: 5px;
+  }
 
   .navigation-wrapper {
     @include clearfix;
@@ -118,6 +123,7 @@ header.navigation {
     text-align: right;
     width: 100%;
     z-index: 9999;
+    font-size: 14px;
 
     @include media ($horizontal-bar-mode) {
       background: transparent;
@@ -125,6 +131,14 @@ header.navigation {
       line-height: $navigation-height;
       text-decoration: none;
       width: auto;
+    }
+
+    .current {
+      color: $green;
+
+      &:hover {
+        color: darken($green, 20%);
+      }
     }
 
     a {
@@ -217,6 +231,7 @@ header.navigation {
   ul.submenu {
     display: none;
     padding-left: 0;
+
 
     @include media($horizontal-bar-mode) {
       left: -$navigation-submenu-padding;

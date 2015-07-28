@@ -5,7 +5,14 @@
 @import "global/variables";
 @import "global/global";
 
+@import "helpers/mixins";
+@import "helpers/classes";
+
 @import "partials/nav";
+@import "partials/masonry";
+@import "partials/footer";
 
 @import "layouts/welcome";
-@import "layouts/seeds"
+@import "layouts/seeds";
+@import "layouts/terms";
+

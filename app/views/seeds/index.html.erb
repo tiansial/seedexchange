@@ -1,5 +1,17 @@
+
+
+<div class="seeds--stats">
+    <div class="community">
+      <h1>Comunidade</h1>
+      <p><i class="fa fa-users"></i> Membros registados: <%= User.count %></p>
+      <p class="facebook"><i class="fa fa-thumbs-up"></i> Grupo Facebook: </p>
+      <p class="online"><i class="fa fa-circle"></i> Membros online: <%= users_online %></p>
+    </div>
+  </div>
+
 <div class="seeds--wrapper">
-  <div class="seeds--feed">
+
+  <div class="seeds--feed transitions-enabled" id="seeds">
     <% @seeds.each do |seed| %>
       <div class="seeds--card">
 
@@ -7,6 +19,9 @@
         <%= link_to seed do %>
           <figure>
             <%= image_tag seed.image.url(:medium) %>
+            <div class="overlay">
+              <a href="#">Facebook</a>
+            </div>
           </figure>
         <% end %>
 
@@ -24,7 +39,11 @@
 
               <div class="seeds--card__userimg">
                   <div class="heightContainer">
-                    <%= image_tag("johndoe") %>
+                     <% if seed.user.photo %>
+                        <%= image_tag seed.user.photo %>
+                    <% else %>
+                        <%= image_tag("avatar-placeholder.jpg") %>
+                    <% end %> 
                   </div>
               </div>
 
@@ -33,22 +52,30 @@
               </div>
 
               <div class="seeds--card__userlocation">
-                Viseu
+                <%= seed.user.location  %>
               </div>
 
-              <span class="seeds--card__userstatus" style="background-color:#2CC36B;"></span>
+              <span class="seeds--card__userstatus <%= seed.user.online? %>" >
+              </span>
             </a>
           </div>
 
           <div class="seeds--card__popularity">
             <ul>
               <li>
-                <%= image_tag("heart.svg") %>
-                <span>23</span>
+                <a href="">
+                  
+                </a>
+                <%= link_to like_seed_path(seed), method: :put do  %>
+                  <i class="fa fa-heart"></i>
+                <% end  %>
+                <span><%= seed.get_upvotes.size  %></span>
               </li>
               <li>
                 <a href="#">
-                  <%= image_tag("comments.svg") %>
+                  <a href="">
+                    <i class="fa fa-comment"></i>
+                  </a>
                   <span>13</span>
                 </a>
               </li>
@@ -63,12 +90,7 @@
     <% end %>
   </div>
 
-  <div class="seeds--stats">
-    <div class="community">
-      <h1>Comunidade</h1>
-      <p><i class="fa fa-users"></i> Membros registados: <%= User.count %></p>
-      <p class="facebook"><i class="fa fa-thumbs-up"></i> Grupo Facebook: </p>
-      <p class="online"><i class="fa fa-circle"></i> Membros online: </p>
-    </div>
-  </div>
+  
 </div>
+
+<a href="<%= new_seed_path %>" class="newseed"><i class="fa fa-plus"></i></a>

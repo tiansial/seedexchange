@@ -1,7 +1,6 @@
 class SeedsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_seed, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :find_seed, only: [:show, :edit, :update, :destroy, :upvote]
 
   def index
     @seeds = Seed.all.order("created_at DESC")
@@ -39,6 +38,11 @@ class SeedsController < ApplicationController
   def destroy
     @seed.destroy
 		redirect_to root_path
+  end
+
+  def upvote 
+    @seed.upvote_by current_user
+    redirect_to :back
   end
 
   private

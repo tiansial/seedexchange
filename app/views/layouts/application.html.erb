@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Troca de Sementes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,10 +11,14 @@
   <script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
-	<%= render 'partials/navbar' %>
+	<main>
+    <%= render 'partials/navbar' %>
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: "alert alert-green" %>
-  <% end %>
-  <%= yield %>
+     <% flash.each do |name, msg| %>
+       <%= content_tag :div, msg, class: "alert alert-green" %>
+     <% end %>
+     <%= yield %> 
+  </main>
+
+  <%= render 'partials/footer' %>
 </body>
