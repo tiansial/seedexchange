@@ -24,6 +24,7 @@ gem 'masonry-rails', '~> 0.2.4'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'jquery-turbolinks'
 gem 'redis'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug'
@@ -35,3 +36,5 @@ end
 group :production do
   gem 'pg'
 end
+
+ruby "2.2.2"
