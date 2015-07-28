@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -24,7 +23,6 @@ gem 'masonry-rails', '~> 0.2.4'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'jquery-turbolinks'
 gem 'redis'
-gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug'
@@ -35,6 +33,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 ruby "2.2.2"
