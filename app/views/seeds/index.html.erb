@@ -19,8 +19,8 @@
         <%= link_to seed do %>
           <figure>
             <%= image_tag seed.image.url(:medium) %>
-            <div class="overlay">
-              <a href="#">Facebook</a>
+            <div class="social-share">
+              <%= link_to image_tag('/images/FaceBookIcon.png'), "https://www.facebook.com/sharer/sharer.php?u=#{request.original_url}#{seed_path(seed.id)}", :target => :blank %>
             </div>
           </figure>
         <% end %>
@@ -94,3 +94,5 @@
 </div>
 
 <a href="<%= new_seed_path %>" class="newseed"><i class="fa fa-plus"></i></a>
+
+

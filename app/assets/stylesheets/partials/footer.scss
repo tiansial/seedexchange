@@ -19,4 +19,21 @@ footer {
   .container {
   	@include outer-container();
   }
+
+  .footer-content {
+    text-align: center;
+    padding: 20px 0;
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    a:first-child {
+      font-size: 18px;
+      font-weight: 500;
+      color: #C6C8C9;
+      text-decoration: none;
+    }
+  }
 }
