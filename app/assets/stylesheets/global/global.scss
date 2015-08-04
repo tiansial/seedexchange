@@ -1,3 +1,13 @@
+* {
+	  &::selection {
+	  	background: lighten($green, 20%); /* WebKit/Blink Browsers */
+		}
+
+	  &::-moz-selection {
+	  	background: lighten($green, 20%); /* Gecko Browsers */
+	  }
+}
+
 body, html {
   font-family: "proxima-nova-soft",sans-serif;
   font-weight: 400;

@@ -1,6 +1,10 @@
 
 
-<div class="seeds--stats">
+
+
+<div class="seeds--wrapper">
+
+  <div class="seeds--stats">
     <div class="community">
       <h1>Comunidade</h1>
       <p><i class="fa fa-users"></i> Membros registados: <%= User.count %></p>
@@ -9,85 +13,86 @@
     </div>
   </div>
 
-<div class="seeds--wrapper">
-
-  <div class="seeds--feed transitions-enabled" id="seeds">
-    <% @seeds.each do |seed| %>
-      <div class="seeds--card">
-
-        
-        <%= link_to seed do %>
-          <figure>
-            <%= image_tag seed.image.url(:medium) %>
-            <div class="social-share">
-              <%= link_to image_tag('/images/FaceBookIcon.png'), "https://www.facebook.com/sharer/sharer.php?u=#{request.original_url}#{seed_path(seed.id)}", :target => :blank %>
-            </div>
-          </figure>
-        <% end %>
-
-        <div class="seeds--card__content">
-          <%= link_to (seed), :class => "seeds--card__type" do %>
-            <div>
-              <h1><%= seed.title %></h1>
-              <p><%= seed.description %></p>
-            </div>
+  <div class="seeds-feed_wrapper">
+    <div class="seeds--feed transitions-enabled" id="seeds">
+      <% @seeds.each do |seed| %>
+        <div class="seeds--card">
+          <a class="social-share" href="
+            https://www.facebook.com/dialog/feed?app_id=1452548131713566&display=popup&caption=An%20example%20caption&link=http%3A%2F%2Flocalhost%3A3000%2Fseeds%2F46&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fseeds
+          ">
+            <i class="fa fa-share"></i> Facebook
+          </a>
+          
+          <%= link_to (seed) do %>
+            <figure>
+                <%= image_tag seed.image.url(:medium) %>
+            </figure>
           <% end %>
 
-          <div class="seeds--card__user">
-
-            <a href="#">
-
-              <div class="seeds--card__userimg">
-                  <div class="heightContainer">
-                     <% if seed.user.photo %>
-                        <%= image_tag seed.user.photo %>
-                    <% else %>
-                        <%= image_tag("avatar-placeholder.jpg") %>
-                    <% end %> 
-                  </div>
+          <div class="seeds--card__content">
+            <%= link_to (seed), :class => "seeds--card__type" do %>
+              <div>
+                <h1><%= seed.common_name %></h1>
+                <p><em><%= seed.scientific_name %></em></p>
               </div>
+            <% end %>
 
-              <div class="seeds--card__username">
-                <%= seed.user.name  %>
-              </div>
+            <div class="seeds--card__user">
 
-              <div class="seeds--card__userlocation">
-                <%= seed.user.location  %>
-              </div>
+              <a href="#">
 
-              <span class="seeds--card__userstatus <%= seed.user.online? %>" >
-              </span>
-            </a>
-          </div>
+                <div class="seeds--card__userimg">
+                    <div class="heightContainer">
+                       <% if seed.user.photo %>
+                          <%= image_tag seed.user.photo %>
+                      <% else %>
+                          <%= image_tag("avatar-placeholder.jpg") %>
+                      <% end %> 
+                    </div>
+                </div>
 
-          <div class="seeds--card__popularity">
-            <ul>
-              <li>
-                <a href="">
-                  
-                </a>
-                <%= link_to like_seed_path(seed), method: :put do  %>
-                  <i class="fa fa-heart"></i>
-                <% end  %>
-                <span><%= seed.get_upvotes.size  %></span>
-              </li>
-              <li>
-                <a href="#">
+                <div class="seeds--card__username">
+                  <%= seed.user.name  %>
+                </div>
+
+                <div class="seeds--card__userlocation">
+                  <%= seed.user.location  %>
+                </div>
+
+                <span class="seeds--card__userstatus <%= seed.user.online? %>" >
+                </span>
+              </a>
+            </div>
+
+            <div class="seeds--card__popularity">
+              <ul>
+                <li>
                   <a href="">
-                    <i class="fa fa-comment"></i>
+                    
                   </a>
-                  <span>13</span>
-                </a>
-              </li>
-            </ul>
-          </div>
+                  <%= link_to like_seed_path(seed), method: :put do  %>
+                    <i class="fa fa-heart"></i>
+                  <% end  %>
+                  <span><%= seed.get_upvotes.size  %></span>
+                </li>
+                <li>
+                  <a href="#">
+                    <a href="">
+                      <i class="fa fa-comment"></i>
+                    </a>
+                    <span>13</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-          <div class="seeds--card__wantbutton">
-            <a href="#">quero!</a>
+            <div class="seeds--card__wantbutton">
+              <a href="#">quero!</a>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
   

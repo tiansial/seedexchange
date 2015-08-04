@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require social-share-button
 //= require masonry/jquery.masonry
 //= require masonry/jquery.imagesloaded.min
 //= require masonry/modernizr-transitions

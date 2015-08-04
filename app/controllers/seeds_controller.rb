@@ -48,7 +48,7 @@ class SeedsController < ApplicationController
   private
 
   def seed_params
-    params.require(:seed).permit(:title, :description, :image)
+    params.require(:seed).permit(:title, :description, :image, :common_name, :scientific_name, :production_year, :location)
   end
 
   def find_seed

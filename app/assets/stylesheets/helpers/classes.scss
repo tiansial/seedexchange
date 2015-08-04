@@ -5,3 +5,24 @@
 .user-offline {
 	background-color: $light-grey;
 }
+
+
+.alert {
+	position: absolute;
+	top: 0;
+	height: 84px;
+	line-height: 84px;
+	z-index: 99999;
+	text-align: center;
+	width: 100%;
+	opacity: 0.8;
+	color: white;
+	font-weight: 700;
+	font-size: 18px;
+	letter-spacing: 2px;
+}
+
+.alert-green {
+
+	background-color: $green;
+}

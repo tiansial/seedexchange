@@ -17,9 +17,8 @@ header.navigation {
   $navigation-submenu-padding: 1em;
   $navigation-submenu-width: 12em;
   $horizontal-bar-mode: $large-screen;
-  margin-bottom: 30px;
   background-color: $navigation-background;
-  border-bottom: 1px solid darken($navigation-background, 10);
+  border-bottom: 4px solid $green;
   min-height: $navigation-height;
   width: 100%;
   z-index: 999;
@@ -174,10 +173,6 @@ header.navigation {
       padding-right: $navigation-submenu-padding;
     }
 
-    > ul > li:first-child a  {
-      padding-top: 1em;
-    }
-
     a {
       margin-right: $navigation-submenu-padding;
     }
@@ -187,7 +182,7 @@ header.navigation {
     }
 
     > a:after {
-      @include position(absolute, auto -0.4em auto auto);
+      @include position(absolute, 0 -0.4em auto auto);
       content: '\25BE';
       color: $navigation-color;
     }
@@ -232,11 +227,23 @@ header.navigation {
     display: none;
     padding-left: 0;
 
-
     @include media($horizontal-bar-mode) {
       left: -$navigation-submenu-padding;
       position: absolute;
-      top: 1.5em;
+      top: 0;
+      padding-top: 65px;
+      &:after {
+        position: absolute;
+        left: 50%;
+        margin-left: -17px;
+        top: 55px;
+        width: 0;
+        height: 0;
+        content:'';
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid lighten($green, 20%);
+      }
     }
 
     .submenu {
@@ -244,6 +251,8 @@ header.navigation {
         left: $navigation-submenu-width - 0.2em;
         top: 0;
       }
+
+      
     }
 
     li {
@@ -261,8 +270,9 @@ header.navigation {
         &:last-child > a {
           border-bottom-left-radius: $base-border-radius;
           border-bottom-right-radius: $base-border-radius;
-          padding-bottom: 0.7em;
         }
+
+
       }
 
       a {
@@ -270,13 +280,21 @@ header.navigation {
         display: inline-block;
         text-align: right;
         width: 100%;
+        
 
         @include media($horizontal-bar-mode) {
-          background-color: $navigation-background;
+          background-color: lighten($green, 20%);
           padding-left: $navigation-submenu-padding;
           text-align: left;
           width: $navigation-submenu-width;
+          color:white;
         }
+        
+        &:hover {
+          background-color: $green;
+          color:white;
+        }
+       
       }
     }
   }

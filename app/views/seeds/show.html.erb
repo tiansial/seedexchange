@@ -1,10 +1,19 @@
 <h1>
-  <%= @seed.title %>
+  <%= @seed.common_name %>
 </h1>
 <p>
   <%= @seed.description %>
 </p>
+<p><%= @seed.location  %></p>
+<%= image_tag @seed.image.url(:medium) %>
 <p><%= @seed.user.email  %></p>
 <%= link_to "Voltar", root_path %>
-<%= link_to "Editar", edit_seed_path %>
-<%= link_to "Apagar", seed_path, method: :delete, data: { confirm: "De certeza que quer apagar a #{@seed.title}semente?"} %>
+
+<% if current_user.id == @seed.user_id %>
+	<%= 
+		link_to "Apagar", seed_path, 
+		method: :delete, 
+		data: { confirm: "De certeza que quer apagar a #{@seed.common_name}semente?"} 
+	%>
+	<%= link_to "Editar", edit_seed_path %>
+<% end %>

@@ -15,12 +15,18 @@
           <li class="nav-link more"><a href="javascript:void(0)">
             <div class="user--nav_img">
               <div class="heightContainer">
-                     <%= image_tag current_user.photo %>
+                 <% if current_user.photo %>
+                    <%= image_tag current_user.photo %>
+                <% else %>
+                    <%= image_tag("avatar-placeholder.jpg") %>
+                <% end %> 
               </div>
             </div>
             <%= current_user.name %></a>
              <ul class="submenu">
-               <li><%= link_to "Conta", edit_user_registration_path %></li>
+               <li><%= link_to "Adicionar Semente", new_seed_path %></li>
+               <li><a href="#">Adicionar Desejo</a></li>
+               <li><%= link_to "Perfil", edit_user_registration_path %></li>
                <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
              </ul>
           </li>
@@ -32,3 +38,6 @@
     </nav>
   </div>
 </header>
+
+
+
