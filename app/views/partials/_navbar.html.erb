@@ -1,4 +1,4 @@
-<header class="navigation" role="banner">
+<header class="navigation <%= nav_fixed %>" role="banner">
   <div class="navigation-wrapper">
     <a href="<%= root_path %>" class="logo">
       <%= image_tag("logo_color.svg", size: "53x80", alt: "Logo") %>
@@ -8,7 +8,7 @@
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
         <% if user_signed_in? %>
-          <li class="nav-link"><%= link_to "Sementes", seeds_path, class: cp(seeds_path) %></li>
+          <li class="nav-link"><%= link_to "Sementes", sementes_path, class: cp(sementes_path) %></li>
           <li class="nav-link"><a href="#">Hortas Comunitárias</a></li>
           <li class="nav-link"><a href="#">Notícias</a></li>
           <li class="nav-link"><%= link_to "Termos e Condições", terms_path, class: cp(terms_path) %></li>
@@ -24,7 +24,7 @@
             </div>
             <%= current_user.name %></a>
              <ul class="submenu">
-               <li><%= link_to "Adicionar Semente", new_seed_path %></li>
+               <li><%= link_to "Adicionar Semente", new_semente_path %></li>
                <li><a href="#">Adicionar Desejo</a></li>
                <li><%= link_to "Perfil", edit_user_registration_path %></li>
                <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>

@@ -1,0 +1,22 @@
+<li class="likes">
+ <!--  <% if current_user.liked? seed %>
+    <%= link_to unlike_seed_path(seed), method: :get, data: { remote: true }, class: 'unlike_seed' do %>
+      <i class="fa fa-heart liked"></i>
+  <% end %>
+  <% else %>
+    <%= link_to like_seed_path(seed), method: :get, data: { remote: true }, class: 'like_seed' do %>
+      <i class="fa fa-heart "></i>
+  <% end %>
+  <% end %> -->
+
+  <% if current_user.liked? seed %>
+     <%= link_to unlike_seed_path(seed), method: :get, remote: true, class: 'unlike_seed' do %>
+         <i class="fa fa-heart "></i>
+     <% end %>
+    <% else %>
+    <%= link_to like_seed_path(seed), method: :get, remote: true, class: 'like_seed' do %>
+        <i class="fa fa-heart "></i>
+    <% end %>
+   <% end %>
+  <span class="likecount-<%= seed.id %>"><%= seed.get_likes.size  %></span>
+</li>

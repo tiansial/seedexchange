@@ -25,6 +25,8 @@ gem 'jquery-turbolinks'
 gem 'redis'
 gem 'unicorn'
 gem 'social-share-button'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'byebug'

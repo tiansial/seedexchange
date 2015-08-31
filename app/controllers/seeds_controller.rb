@@ -40,9 +40,22 @@ class SeedsController < ApplicationController
 		redirect_to root_path
   end
 
-  def upvote 
-    @seed.upvote_by current_user
-    redirect_to :back
+  def like
+    @seed = Seed.find(params[:id])
+    @seed.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render layout: false }
+    end
+  end
+
+  def unlike
+    @seed = Seed.find(params[:id])
+    @seed.unliked_by current_user
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render layout: false }
+    end
   end
 
   private

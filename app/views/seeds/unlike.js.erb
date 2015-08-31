@@ -1,0 +1,12 @@
+<!-- $('.unlike_seed').bind('ajax:success', function(){
+   $(this).parent().parent().find('.likecount-<%= @seed.id %>').html('<%= escape_javascript @seed.votes_for.size.to_s %>');
+   $(this).closest('.fa-heart').removeClass('liked');
+   $(this).closest('.votes').html(' <%= link_to "Like", like_seed_path(@seed), remote: true, method: :get, class: 'like_seed' %>');
+}); -->
+
+$('.unlike_seed').bind('ajax:success', function(){
+   $(this).parent().find('.likecount-<%= @seed.id %>').html('<%= escape_javascript @seed.votes_for.size.to_s %>');
+   $(this).closest('.unlike_seed').hide();
+   $(this).closest('.likes').html(' <%= link_to "Like", like_seed_path(@seed), remote: true, method: :get, class: 'like_seed' %>');
+
+});

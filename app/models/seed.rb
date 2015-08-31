@@ -7,4 +7,7 @@ class Seed < ActiveRecord::Base
 					  :default_url => "seed-placeholder.jpg"
 
 	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+	
+
 end

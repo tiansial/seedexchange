@@ -1,15 +1,18 @@
 
-
-
-
 <div class="seeds--wrapper">
 
-  <div class="seeds--stats">
-    <div class="community">
-      <h1>Comunidade</h1>
-      <p><i class="fa fa-users"></i> Membros registados: <%= User.count %></p>
-      <p class="facebook"><i class="fa fa-thumbs-up"></i> Grupo Facebook: </p>
-      <p class="online"><i class="fa fa-circle"></i> Membros online: <%= users_online %></p>
+  <div class="seeds--interface__wrapper">
+    <div class="seeds--search">
+      search
+    </div>
+
+    <div class="seeds--stats">
+      <div class="community">
+        <h1>Comunidade</h1>
+        <p><i class="fa fa-users"></i> Membros registados: <%= User.count %></p>
+        <p class="facebook"><i class="fa fa-thumbs-up"></i> Grupo Facebook: </p>
+        <p class="online"><i class="fa fa-circle"></i> Membros online: <%= users_online %></p>
+      </div>
     </div>
   </div>
 
@@ -57,6 +60,7 @@
 
                 <div class="seeds--card__userlocation">
                   <%= seed.user.location  %>
+                  <p></p>
                 </div>
 
                 <span class="seeds--card__userstatus <%= seed.user.online? %>" >
@@ -66,18 +70,11 @@
 
             <div class="seeds--card__popularity">
               <ul>
-                <li>
-                  <a href="">
-                    
-                  </a>
-                  <%= link_to like_seed_path(seed), method: :put do  %>
-                    <i class="fa fa-heart"></i>
-                  <% end  %>
-                  <span><%= seed.get_upvotes.size  %></span>
-                </li>
+                <%= render :partial => "partials/likebutton", :locals => {:seed => seed} %>
+                
                 <li>
                   <a href="#">
-                    <a href="">
+                    <a href="#">
                       <i class="fa fa-comment"></i>
                     </a>
                     <span>13</span>

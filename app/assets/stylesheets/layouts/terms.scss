@@ -1,6 +1,6 @@
 .terms--box {
 	@include outer-container();
-	@include white-box();
+	@include white-box(white);
 
 	padding:2em;
 
